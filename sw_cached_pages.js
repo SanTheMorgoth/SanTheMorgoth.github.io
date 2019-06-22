@@ -3,23 +3,11 @@ const cacheName = 'v1';
 const cacheAssests = [
     '/images/flower.jpeg',
     '/images/sea.jpeg',
-    '/index.html',
-    '/about.html'
 ];
 
 //call install event
 self.addEventListener('install', e => {
     console.log('SW::INSTALLED');
-    e.waitUntil(
-        caches.open(cacheName)
-        .then(cache => {
-            console.log('SW::CACHING FILES');
-            console.log(cache, "ll");
-            cache.addAll(cacheAssests);
-        })
-        .then(() => self.skipWaiting())
-        .catch(err => console.log('SW::CACHE ERR'))
-    );
 });
 
 self.addEventListener('activate', e => {
